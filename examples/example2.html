@@ -1,0 +1,37 @@
+<!-- example2.html-->
+<!---
+Here's what happens when a browser loads a website:
+
+Fetch the HTML page (e.g. index.html)
+Begin parsing the HTML
+The parser encounters a <script> tag referencing an external script file.
+The browser requests the script file. Meanwhile, the parser blocks and stops parsing the other HTML on your page.
+After some time the script is downloaded and subsequently executed.
+The parser continues parsing the rest of the HTML document.
+-->
+<!doctype html>
+<html>
+    <head>
+        <title>My Page</title>
+    </head>
+    <body>
+        <div id="user-greeting">Welcome, user.</div>
+        <!-- unless noted by the async attribute, scripts will load in the order they are declared in markup, demonstrated here.-->
+        <script type="text/javascript">
+            /* Here's the first script */
+            var goby = "Here is the first script.";
+        </script>
+        <script type="text/javascript">
+            /* Here's the second script */
+            var gobie = " Here is the second script.";
+            /* Here we reference a variable from the second script, already declared and initialized, modyifing its content*/
+            goby = 90909;
+        </script>
+        <script type="text/javascript">
+            /* Here's the third script, we reference a variable initialized and declared on the second script*/
+            console.log(goby); // 90909
+            console.log(gobie); // Here's the second script
+            console.log("Here's the third script");
+        </script>
+    </body>
+</html>

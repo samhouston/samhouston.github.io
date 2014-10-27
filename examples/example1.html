@@ -1,0 +1,32 @@
+<!-- example1.html-->
+<!---
+Here's what happens when a browser loads a website:
+
+Fetch the HTML page (e.g. index.html)
+Begin parsing the HTML
+The parser encounters a <script> tag referencing an external script file.
+The browser requests the script file. Meanwhile, the parser blocks and stops parsing the other HTML on your page.
+After some time the script is downloaded and subsequently executed.
+The parser continues parsing the rest of the HTML document.
+-->
+<!doctype html>
+<html>
+    <head>
+        <title>My Page</title>
+        <!-- old practice -->
+        <!--- If you make a reference to any kind of markup or DOM element in this script, you will get an error.-->
+        <script type="text/javascript" src="least_helpful.js"></script>
+    </head>
+    <body>
+        <div id="user-greeting">Welcome, user.</div>
+        <!-- universal support and best practice -->
+        <script type="text/javascript" src="old_standard.js"></script>
+        <!-- not universal support -->
+
+        <!--async loads scripts asychronously, whenever the browser has freed resources, guaranteeing unblocked execution -->
+        <script src="nonstandard_aysnc.js" charset="utf-8" async></script>
+         <!--async guarantees execution, but not order of execution. Defered solves that problem by loading a bundle of scripts asynchronously, but in the order specified in this markup -->
+        <script src="ns_appears_1st.js" charset="utf-8" async defer></script>
+         <script src="ns_appears_2nd.js" charset="utf-8" async defer></script>
+    </body>
+</html>

@@ -1,0 +1,91 @@
+As programs get bigger, many of the usual structures and flow control schemes get harder to understand and comb through, specially when you're jumping into a project mid-way. And as something gets more complex, the possibility for it to fail gets larger and larger over time. This is why it's important to always look for ways to keep the complexity of your code under control, which means as low as possible. Abstracting and creating inheritance chains is important, however it's easy to fixate on small issues than arise from such a practice. 
+
+Functional programming is a quick way to take care of complex code by abstracting what is trivial into less than half of the lines of code. Knowing what the fundamental functions do in every Javascript object creates effective and cleaner code. The best example of Javascript Functional Programming lies in the Array methods.
+
+Traversing the elements of an array can be done in a trivial for-loop like so:
+/**
+	var names = ["Ben", "Jafar", "Matt", "Priya", "Brian"],
+		counter;
+
+	for(counter = 0; counter < names.length; counter++) {
+		console.log(names[counter]);
+	}
+**/
+But this can be reduced in complexity, by using the built-in method "forEach"
+/**
+	var names = ["Ben", "Jafar", "Matt", "Priya", "Brian"];
+
+	names.forEach(function(name) {
+		console.log(name);
+	});
+**/
+.forEach() abstracts away the manner in which the array is traversed, and only recieves an instruction to do something with each element, in this case log them into the console. This use may be petty, but it makes for cleaner code that everyone can understand at a glance.
+.map() is another infinitely useful function. It acts exactly the same as forEach(), but in addition of applying the function to each element of the array, it creates a new array with the modified elements.
+/**
+	var names = ["Ben", "Jafar", "Matt", "Priya", "Brian"];
+	var NAMES = names.map(function(name) {
+		return name.toUpperCase();
+	});
+	console.log(names);
+	console.log(NAMES);
+}
+**/
+Again, the array traversal is hidden to privilege what it is the developer going to do with each element as it is pushed into the new array.
+
+Another function that abstracts away code even further is the filter() function, which fills a new array with elements of another one that return true after a comparison has been made in the callback. It "filters" your data through a condition and then returns the results that did comply with the filter.
+/**
+	var names = ["Ben", "Jafar", "Matt", "Priya", "Brian"];
+	var namesB = names.filter(function(name) {
+		return name.indexOf("B") >= 0;
+	});
+	console.log(names);
+	console.log(namesB);
+}
+**/
+Chaining these methods is possible to create powerful data traversal algorithms:
+/**
+	var names = ["Ben", "Jafar", "Matt", "Priya", "Brian"];
+	var namesB = names.filter(function(name) {
+		return name.indexOf("B") >= 0;
+	}).map(function(nam){
+		return nam.toUpperCase();
+	});
+	console.log(names);
+	console.log(namesB);
+}
+**/
+The .reduce() array tackles a different problem altogether. Remember the adding up all the numbers of an Array? How could we eschew the use of a traditional for loop for that matter? Reduce takes the elements of a function, an accumulator value, and lets the user decide what to do with each incoming element. The traditional way of demonstrating .reduce() is by the aforementioned arithmetics. 
+/**
+	var res = [1,2,3].reduce(function(accumulatedValue, currentValue) { 
+		return accumulatedValue + currentValue; 
+	});
+	console.log(res);
+**/
+The acumulator gets reset every time the function returns a value, overriding whatever was before it. The identifier is the final result. Of course this doesn't only just happen in a numerical standpoint, .reduce() can also be used for other purposes. Simply put, .reduce() traverses an array and continuosly updates a variable that would normally be outside of a traditional for loop. The second argument in the reduce function is the initial value of the accumulator.
+/**
+	var names = ["Ben", "Jafar", "Matt", "Priya", "Brian"];
+	var biggest = names.reduce(function(cumulator, current){
+		if(cumulator < current)	return current;
+		else return cumulator;
+	}, names[0]);
+	console.log(biggest);
+**/
+Combining all these three very distinct functions built into the Array constructor creates simpler, cleaner and in many cases faster code that does not buckle under pressure. This is simply scratching the surface of functional programming, however it servers as an appetizer to a full course of advanced Javascript Applications.
+
+Promises constitute another useful feature to have in the Javascript arsenal, seeing as much of the initial use of the language was to capture user input and then creating changes in the View. Promises are not a part of the ECMAScript standard, however they are a coming feature in Harmony and external libraries such as JQuery and q support it. In short, promises are methods that return a dynamically generated callback once the execution of a certain function has been completed. Remember the old adage in computer programming that you cannot be 100% sure a function has completed and delivered data in time for you to start another function with that data? Promises fix that by ensuring a callback is executed right after the function that makes the promises finishes its own execution. Promises are either resolved, where the function was completed sucessfuly, or rejected, where there was an error in computation and the function failed to deliver that promise. The code in ES6 will look like this, with similar implementations coming in q and jQuery today.
+/**
+var promise = new Promise(function(resolve, reject) {
+  // do a thing, possibly async, then…
+
+  if (/* everything turned out fine */) {
+    resolve("Stuff worked!");
+  }
+  else {
+    reject(Error("It broke"));
+  }
+});
+**/
+
+Modules are at the heart of loosely-coupled code, much like packages and namespaces in other languages. Modules are discreet, self-stored packages of functionality that only expose their public methods when they are necessary. Implemented efficently, Modules can bring pre-packaged code that can maximize the potential of a codebase. The current iteration of JavaScript doesn't support modules natively, it will do so in ES6, however two standards have sprung up to solve this problem and create modular applications: AMD, or Asynchronous Module Definition, and the CommonJS standard. The specifics of defining this module and how do they work is beyond the scope of ths seminar, however we can briefly discuss their strengths and weaknesses. AMD is more suited for client-side scripting, as it loads code asynchronously using native Javascript code. It's highly flexible, and currently embraced by larger projects such as jQuery and Firebug. THe CommonJS standard, on the other hand, sprung from volunteers who decided to design and standardize the Javascript APIs, so much fragmented by the browser wars the language was subjected to. The CommonJS structure is simpler than that of AMD, and a lot more straight forward to understand, however it is not supported in any browser or framework beyond Node.js. EcmaScript 6 adopts neither module schematic, instead adopting its own syntax with two new keywords: import and export. For further information on modules, please check out Addy Osmani's Writing Modular JavaScript with AMD, CommonJS and ES Harmony.
+
+We have barely scratched the surface of Advanced Uses of Javascript, but covering them all in depth would take hours upon hours of seminar. For more information I urge you to checkout nodeschool.io, they provide CLI learning tools for you to pick up and start experimenting with advanced JS features for free. They are served on npm, so it's necessary to get Node.js for your system before starting to play with them.
