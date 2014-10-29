@@ -1,3 +1,5 @@
+/* example15.js
+Pbject Augmentation*/
 myParenizor = new Parenizor(0);
 myParenizor.toString = function () {
     if (this.getValue()) {

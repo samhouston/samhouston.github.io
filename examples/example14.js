@@ -1,3 +1,5 @@
+/* example14.js
+Prototype Inheritance*/
 var goby = {};
 goby.val = 90990;
 console.log(goby.val);

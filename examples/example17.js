@@ -1,3 +1,5 @@
+/* example17.js
+Future Class Implementation*/
 class View {
   constructor(options) {
     this.model = options.model;
