@@ -34,6 +34,7 @@
 					<p>All Content is owned by SHACS and Eduardo de Luna</p>
 			</div>
 			<div id="jontron" class="ten columns">
+			<h3> example1.html </h3>
 				<pre><code class='language-markup'>
 &lt;!-- example1.html-->
 &lt;!---
@@ -68,6 +69,7 @@ The parser continues parsing the rest of the HTML document.
     &lt;/body>
 &lt;/html>
 				</code></pre>
+				<h3> example2.html </h3>
 				<pre><code class='language-markup'>
 &lt;!-- example2.html-->
 &lt;!---
@@ -118,7 +120,7 @@ The parser continues parsing the rest of the HTML document.
 				if( i == 1 && i == 2) fstring = "example"+i+".html";
 				else fstring = "example"+i+".js";
 				jQuery.get(fstring, function(data) {
-					console.log(fstring);
+					$("#jontron").append("<h3>"+this.url+"</h3>");
 					$("#jontron").append("<pre><code class='language-javascript'>"+data+"</code></pre>");
 					Prism.highlightAll();
 				}, "text");
