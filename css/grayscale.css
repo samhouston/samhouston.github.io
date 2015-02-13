@@ -129,7 +129,7 @@ a:focus {
 
 }
 @media(min-width:767px) {
-    .navbar-custom .navbar-brand .navbar-toggle {
+   .navbar-brand{
     font-size: 16px;
     }
     .navbar {
@@ -349,7 +349,7 @@ ul.banner-social-buttons {
 }
 
 @media(max-width:767px) {
-    .navbar-custom .navbar-brand .navbar-toggle {
+    .navbar-brand{
     font-size: 12px;
     }
     .res img{
