@@ -112,6 +112,23 @@ a:focus {
 #rules{
     background-color: #100E40;
 }
+#resources, #add{
+    background-color: #353273;
+    padding-left: 3em;
+    padding-right: 3em;
+}
+.res img{
+    width: 300px;
+    height: 300px;
+}
+.res .desc{
+    padding-top: 1em;
+}
+.res .desc > p{
+    text-align: justify;
+    text-justify: inter-word;
+
+}
 @media(min-width:767px) {
     .navbar {
         padding: 20px 0;
