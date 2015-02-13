@@ -79,7 +79,6 @@ a:focus {
 
 .navbar-custom .navbar-brand .navbar-toggle {
     padding: 4px 6px;
-    font-size: 16px;
     color: #fff;
 }
 
@@ -130,6 +129,9 @@ a:focus {
 
 }
 @media(min-width:767px) {
+    .navbar-custom .navbar-brand .navbar-toggle {
+    font-size: 16px;
+    }
     .navbar {
         padding: 20px 0;
         border-bottom: 0;
@@ -347,6 +349,13 @@ ul.banner-social-buttons {
 }
 
 @media(max-width:767px) {
+    .navbar-custom .navbar-brand .navbar-toggle {
+    font-size: 12px;
+    }
+    .res img{
+    width: 150px;
+    height: 150px;
+    }
     ul.banner-social-buttons li {
         display: block;
         margin-bottom: 20px;
