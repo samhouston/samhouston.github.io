@@ -116,9 +116,13 @@ a:focus {
     padding-left: 3em;
     padding-right: 3em;
 }
-.res img{
-    width: 300px;
-    height: 300px;
+#tips{
+    background-color: #100E40;
+    padding-left: 3em;
+    padding-right: 3em;
+}
+#contact{
+    padding-bottom: 5em;
 }
 .res .desc{
     padding-top: 1em;
@@ -129,6 +133,10 @@ a:focus {
 
 }
 @media(min-width:767px) {
+    .res img{
+    width: 300px;
+    height: 300px;
+    }
    .navbar-brand{
     font-size: 16px;
     }
@@ -188,7 +196,20 @@ a:focus {
 .intro .intro-body .intro-text {
     font-size: 18px;
 }
+footer {
+    background-color:#100E40;
+    border-top: 35px solid #F23838;
+    background-image: linear-gradient(#353273 2px, transparent 2px),
+    linear-gradient(90deg, #353273 2px, transparent 2px),
+    linear-gradient(#353273 1px, transparent 1px),
+    linear-gradient(90deg, #353273 1px, transparent 1px);
+    background-size:100px 100px, 100px 100px, 20px 20px, 20px 20px;
+    background-position:-2px -2px, -2px -2px, -1px -1px, -1px -1px;
+}
 
+footer p{
+    margin: 0;
+}
 @media(min-width:767px) {
     .intro {
         height: 100%;
@@ -365,14 +386,6 @@ ul.banner-social-buttons {
     ul.banner-social-buttons li:last-child {
         margin-bottom: 0;
     }
-}
-
-footer {
-    padding: 50px 0;
-}
-
-footer p {
-    margin: 0;
 }
 
 ::-moz-selection {
