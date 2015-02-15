@@ -124,6 +124,9 @@ a:focus {
 #contact{
     padding-bottom: 5em;
 }
+.res{
+    min-height: 300px;
+}
 .res .desc{
     padding-top: 1em;
 }
